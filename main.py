@@ -15,9 +15,5 @@ def main():
     pdf.create_pdf(animeList)
     folder.removeHtmlFile()
 
-def tests():
-    anime = tester.getAnime(headers)
-    tester.create_pdf(anime)
-
 if __name__ == '__main__':
     main()
