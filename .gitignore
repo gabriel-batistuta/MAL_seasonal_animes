@@ -1,0 +1,9 @@
+__pycache__
+node_modules
+package-lock.json
+/dist
+.cache
+/animes
+*.pdf
+test.py
+.client_ID.json
