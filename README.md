@@ -12,6 +12,21 @@ to download the dependencies:
 
 - `pip install -r requirements.txt`
 
+# running
+
+- in *jsonAuth.py* change the value of **client_id** to your client ID from MAL API
+
+example:
+```
+# your id is < 1234ABCD!@#$ >:
+
+client_id = '1234ABCD!@#$'
+```
+
+- a secret file named '.client_ID.json' will be generated with your id
+
+- run 'main.py' and enjoy!
+
 # referencies:
 
 - ***https://myanimelist.net/apiconfig/references/api/v2***
