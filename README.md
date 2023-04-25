@@ -1,10 +1,10 @@
-<h1 align="center">mal_seazonal_animes<h1>
+<h1 align="center">mal_seasonal_animes<h1>
 
-**a anime seazonal getter using MAL API, this transform the data to PDF**
+**a anime seasonal getter using MAL API, this transform the data to PDF**
 
 [![scripting_running](./assets/thumbnail.png)](./assets/scripting_running.webm)
 
-the script get data seazonal from **MAL API** and transform this in HTML to format in PDF using ***jinja2*** and ***pdfkit***
+the script get data seasonal from **MAL API** and transform this in HTML to format in PDF using ***jinja2*** and ***pdfkit***
 
 # dependencies
 
