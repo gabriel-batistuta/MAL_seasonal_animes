@@ -1,2 +1,19 @@
-# mal_seazonal_animes
-a anime seazonal getter using MAL API, this transform the data to PDF
+<h1 align="center">mal_seazonal_animes<h1>
+
+**a anime seazonal getter using MAL API, this transform the data to PDF**
+
+[![scripting_running](./assets/thumbnail.png)](./assets/scripting_running.webm)
+
+the script get data seazonal from **MAL API** and transform this in HTML to format in PDF using ***jinja2*** and ***pdfkit***
+
+# dependencies
+
+to download the dependencies:
+
+- `pip install -r requirements.txt`
+
+# referencies:
+
+- ***https://myanimelist.net/apiconfig/references/api/v2***
+
+- ***https://towardsdatascience.com/how-to-easily-create-a-pdf-file-with-python-in-3-steps-a70faaf5bed5***
