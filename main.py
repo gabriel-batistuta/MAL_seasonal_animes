@@ -1,5 +1,4 @@
 from modules import filter, pdf, searcher, folder
-from tests import tester
 from googletrans import Translator
 from jsonAuth import Json
 
