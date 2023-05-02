@@ -1,4 +1,4 @@
-from modules import filter, pdf, searcher, folder
+import MAL
 from googletrans import Translator
 from jsonAuth import Json
 
@@ -7,11 +7,11 @@ translator = Translator()
 header = Json().readJson()
 
 def main():
-    folder.createFolder()
-    url, season = filter.getCurrentSeason()
-    animeList = searcher.getAnimes(url, header)
-    animeList = filter.getAnimeDetails(animeList, header, season, translator)
-    pdf.create_pdf(animeList, season)
+    MAL.createFolder()
+    url, season = MAL.getCurrentSeason()
+    animeList = MAL.getAnimes(url, header)
+    animeList = MAL.getAnimeDetails(animeList, header, season, translator)
+    MAL.create_pdf(animeList, season)
 
 if __name__ == '__main__':
     main()
