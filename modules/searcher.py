@@ -1,9 +1,9 @@
 import requests
 import json
 
-def getAnimes(url, headers):
+def getAnimes(url, header):
 
-    response = requests.get(url,headers=headers).content
+    response = requests.get(url,headers=header).content
     
     json_data = json.loads(response)
 
@@ -18,7 +18,7 @@ def getAnimes(url, headers):
             animeList.append(anime)
         try:
             nextPage = json_data['paging']
-            json_data = requests.get(nextPage['next'],headers=headers).content
+            json_data = requests.get(nextPage['next'],headers=header).content
             json_data = json.loads(json_data)
             animes = json_data['data']
         except:
