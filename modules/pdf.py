@@ -1,26 +1,40 @@
-import jinja2
+from jinja2 import Template
 import pdfkit
+import os
+import platform
 
-def create_pdf(animeList):
-    # for every anime
+def create_pdf(animeList, season):
+   
+    html = '<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>'
+
+    try:
+        if platform.system() == 'Windows': 
+            path_wkhtmltopdf = os.popen('where wkhtmltopdf').read() 
+
+        else:
+            path_wkhtmltopdf = os.popen('which wkhtmltopdf').read() 
+
+        config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
+    except:
+        config = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
+
+    with open('./templates/template.html','r') as file:
+        templateString = file.read()
+
+    cssPath = './templates/template.css'
+
     for anime in animeList:
 
-        # variables for template
-        context = {'title':anime.title, 'image':anime.img,'synopsis':anime.synopsis, 'genres':anime.genres, 'studios':anime.studios}
+        context = {
+            'title':anime.title,
+            'image':anime.img,
+            'synopsis':anime.synopsis,
+            'genres':anime.genres,
+            'studios':anime.studios
+        }
 
-        # generate template
-        with open('./template.html','r') as file:
-            template = file.read()
-        with open(f'./animes/templates/{anime.title}.html','x') as file:
-            file.write(template)
-        
-        # get template and prepare using jinja2
-        template_loader = jinja2.FileSystemLoader(f'./animes/templates')
-        template_env = jinja2.Environment(loader=template_loader)
-        templ = template_env.get_template(f'{anime.title}.html')
-        output_text = templ.render(context)
-        
-        # transform HTML template in pdf file
-        config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
-        pdfkit.from_string(output_text, f'animes/{anime.title}.pdf', configuration=config, css='./css/template.css')
-        
+        template = Template(templateString)
+        output_text = template.render(context)
+        html += output_text
+
+    pdfkit.from_string(html, f'./animes/animes {season}.pdf', configuration=config, css=cssPath, options={ 'enable-local-file-access': None })
