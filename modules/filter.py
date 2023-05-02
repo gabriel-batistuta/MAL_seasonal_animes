@@ -58,19 +58,20 @@ def getCurrentSeason():
 
     return url, season
 
-def getAnimeDetails(animeList, headers, season, translator):
+def getAnimeDetails(animeList, header, season, translator):
     
     aniList = []
 
     for anime in animeList:
         url = f'https://api.myanimelist.net/v2/anime/{anime["id"]}?fields=id,title,main_picture,alternative_titles,start_date,end_date,synopsis,mean,rank,popularity,num_list_users,num_scoring_users,nsfw,created_at,updated_at,media_type,status,genres,my_list_status,num_episodes,start_season,broadcast,source,average_episode_duration,rating,pictures,background,related_anime,related_manga,recommendations,studios,statistics'
-        resp = json.loads(requests.get(url, headers=headers).content)
+        resp = json.loads(requests.get(url, headers=header).content)
         id = resp['id']
         title = resp['title']
         img = resp['main_picture']['large']
         alternative_titles = resp['alternative_titles']['synonyms']
         start_date = resp['start_date']
         synopsis = translator.translate(resp['synopsis'], dest='pt').text
+        synopsis = synopsis.replace('[Escrito por MAL Rewrite]','')
         nsfw = resp['nsfw']
         created_at = resp['created_at']
         media_type = resp['media_type']
