@@ -4,16 +4,14 @@ from jsonAuth import Json
 
 translator = Translator()
 
-headers = Json().readJson()
+header = Json().readJson()
 
 def main():
     folder.createFolder()
-    folder.createTemplateFolder()
     url, season = filter.getCurrentSeason()
-    animeList = searcher.getAnimes(url, headers)
-    animeList = filter.getAnimeDetails(animeList, headers, season, translator)
-    pdf.create_pdf(animeList)
-    folder.removeHtmlFile()
+    animeList = searcher.getAnimes(url, header)
+    animeList = filter.getAnimeDetails(animeList, header, season, translator)
+    pdf.create_pdf(animeList, season)
 
 if __name__ == '__main__':
     main()
