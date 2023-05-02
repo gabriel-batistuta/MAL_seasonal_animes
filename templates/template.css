@@ -4,5 +4,9 @@ body{
 }
 
 p { 
-    font-size: 24px; 
+    font-size: 24px;
+}
+
+div.page-break {
+    page-break-after: always;
 }
