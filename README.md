@@ -2,7 +2,9 @@
 
 **a anime seasonal getter using MAL API, this transform the data to PDF**
 
-[![scripting_running](./assets/thumbnail.png)](./assets/scripting_running.webm)
+
+https://user-images.githubusercontent.com/96501194/235035549-7f758e77-2c1f-413a-b1f8-b83119355a9c.mp4
+
 
 the script get data seasonal from **MAL API** and transform this in HTML to format in PDF using ***jinja2*** and ***pdfkit***
 
@@ -13,6 +15,10 @@ to download the dependencies:
 - `pip install -r requirements.txt`
 
 # running
+
+
+
+
 
 - in *jsonAuth.py* change the value of **client_id** to your client ID from MAL API
 
