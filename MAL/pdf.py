@@ -30,7 +30,11 @@ def create_pdf(animeList, season):
             'image':anime.img,
             'synopsis':anime.synopsis,
             'genres':anime.genres,
-            'studios':anime.studios
+            'studios':anime.studios,
+            'start_date':anime.start_date,
+            'source':anime.source,
+            'num_episodes':anime.num_episodes,
+            'day_release':anime.day_release
         }
 
         template = Template(templateString)
