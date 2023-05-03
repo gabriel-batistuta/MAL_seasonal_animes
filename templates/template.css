@@ -5,6 +5,12 @@ body{
 
 p { 
     font-size: 24px;
+    text-align: left;
+    text-align: justify;
+}
+
+h1, img {
+    text-align: center;
 }
 
 div.page-break {
