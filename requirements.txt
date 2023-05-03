@@ -2,3 +2,4 @@ requests
 jinja2
 pdfkit
 googletrans==3.1.0a0
+inquirer
